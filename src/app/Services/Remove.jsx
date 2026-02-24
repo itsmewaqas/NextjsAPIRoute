@@ -8,7 +8,7 @@ export default function Remove(props) {
     const router = useRouter();
 
     const deleteUser = async () => {
-        let result = await fetch(`http://localhost:3000/API/List/${userID}`, {
+        let result = await fetch(`/API/List/${userID}`, {
             method: "Delete",
         });
         let response = await result.json();

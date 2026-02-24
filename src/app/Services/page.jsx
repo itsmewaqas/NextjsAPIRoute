@@ -1,8 +1,9 @@
 import Link from "next/link";
 import Remove from "./Remove";
+import { API_BASE_URL } from "../../../config/constant";
 
 async function GetAPIData() {
-    let data = await fetch('http://localhost:3000/API/List');
+    let data = await fetch(`${API_BASE_URL}/API/List`);
     let result = await data.json();
     return result;
 }

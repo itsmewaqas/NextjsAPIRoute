@@ -1,5 +1,7 @@
+import { API_BASE_URL } from "../../../../config/constant";
+
 async function getuser(id) {
-    let data = await fetch(`http://localhost:3000/API/List/${id}`);
+    let data = await fetch(`${API_BASE_URL}/API/List/${id}`);
     data = await data.json();
     return data.result;
 }

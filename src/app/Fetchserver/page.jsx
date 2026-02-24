@@ -4,9 +4,11 @@
 //     return finalData.users;
 // };
 
+import { API_BASE_URL } from '../../../config/constant';
+
 async function userList() {
     try {
-        const data = await fetch("http://localhost:3000/API/User");
+        const data = await fetch(`${API_BASE_URL}/API/User`);
         // Check if response is NOT OK (404, 500, etc.)
         if (!data.ok) {
             throw new Error(`Error ${data.status}: Data not found`);

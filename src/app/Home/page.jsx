@@ -1,4 +1,5 @@
-import { API_BAS_URL } from "../../../config/constant";
+
+import { API_BASE_URL } from "../../../config/constant";
 import { Event1, Event2, Event3 } from "./EventComponent";
 
 export default function Page() {
@@ -11,7 +12,7 @@ export default function Page() {
         <div>
             <h1>Home Page</h1>
             <h5>{process.env.NODE_ENV == "development" ? "You are on development mode" : "You are on production mode"}</h5>
-            <h6>{API_BAS_URL}</h6>
+            <h6>{API_BASE_URL}</h6>
             <Event1 />
             <Event2 />
             <Event3 />

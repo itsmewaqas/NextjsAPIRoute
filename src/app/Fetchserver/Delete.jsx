@@ -2,6 +2,7 @@
 import deleteIcon from "../../assets/img/delete.png";
 import Image from "next/image";
 import { useRouter } from 'next/navigation';
+import { API_BASE_URL } from "../../../config/constant";
 
 export default function DeleteBTN(props) {
 
@@ -9,7 +10,7 @@ export default function DeleteBTN(props) {
     const router = useRouter();
 
     const deleteUser = async () => {
-        let result = await fetch(`http://localhost:3000/API/User/${userID}`, {
+        let result = await fetch(`${API_BASE_URL}/API/User/${userID}`, {
             method: "Delete",
         });
         let response = await result.json();

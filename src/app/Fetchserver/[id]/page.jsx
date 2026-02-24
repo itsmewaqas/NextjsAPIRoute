@@ -5,6 +5,7 @@ import { useRouter } from 'next/navigation';
 import delIcon from '../../../assets/img/delete.png';
 import ediIcon from '../../../assets/img/edit.png';
 import Image from "next/image";
+import { API_BASE_URL } from "../../../../config/constant";
 
 export default function Page({ params }) {
 
@@ -40,7 +41,7 @@ export default function Page({ params }) {
 
     const getUserDetails = async () => {
         try {
-            const response = await fetch(`http://localhost:3000/API/User`);
+            const response = await fetch(`${API_BASE_URL}/API/User`);
             const data = await response.json();
             const user = data.find(x => Number(x.id) === Number(id));
             setFormState(user);
@@ -60,7 +61,7 @@ export default function Page({ params }) {
 
     const updateUser = async () => {
         try {
-            const response = await fetch(`http://localhost:3000/API/User/${id}`, {
+            const response = await fetch(`${API_BASE_URL}/API/User/${id}`, {
                 method: "PUT",
                 headers: {
                     "Content-Type": "application/json",
@@ -100,7 +101,7 @@ export default function Page({ params }) {
         }
         try {
             const { name, email, cell, password } = values
-            const response = await fetch('http://localhost:3000/API/User', {
+            const response = await fetch(`${API_BASE_URL}/API/User`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -159,7 +160,7 @@ export function DeleteBTN(props) {
     const userID = props.id;
     const router = useRouter();
     const DelCtrl = async () => {
-        let result = await fetch(`http://localhost:3000/API/User/${userID}`, {
+        let result = await fetch(`${API_BASE_URL}/API/User/${userID}`, {
             method: "Delete",
         });
         let response = await result.json();
@@ -194,7 +195,7 @@ export function DeleteBTN(props) {
 
 
 // async function getuser() {
-//     const data = await fetch(`http://localhost:3000/API/User`);
+//     const data = await fetch(`${API_BASE_URL}/API/User`);
 //     const result = await data.json();
 //     return result;
 // }
