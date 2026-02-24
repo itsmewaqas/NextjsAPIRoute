@@ -1,0 +1,29 @@
+https://www.youtube.com/watch?v=JrAiefGNUq8
+https://www.sqlitetutorial.net/sqlite-date/
+https://www.tutorialspoint.com/sqlite/sqlite_drop_table.htm
+https://www.geeksforgeeks.org/sqlite/sqlite-tutorial/
+
+
+Recommended workflow:
+
+Ctrl + Shift + P
+
+SQLite: Open Database
+
+Select your .db file
+
+Open a .sql file
+
+Right-click → Run Query
+
+stmt.all();   // SELECT → multiple rows
+stmt.get();   // SELECT → one row
+stmt.run();   // INSERT / UPDATE / DELETE
+
+db → database connection
+
+prepare() → prepares/compiles SQL query
+
+.all() → executes and returns all rows
+
+rows → array of results
