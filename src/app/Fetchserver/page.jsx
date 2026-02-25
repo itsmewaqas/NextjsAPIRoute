@@ -4,7 +4,7 @@
 //     return finalData.users;
 // };
 
-import { API_BASE_URL } from '../../../config/constant';
+import { API_BASE_URL} from '../../../config/constant';
 
 async function userList() {
     try {
