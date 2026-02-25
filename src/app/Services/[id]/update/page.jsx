@@ -1,6 +1,6 @@
 "use client"
 import { useEffect, useState } from "react";
-import { useRouter } from 'next/navigation';
+import { useRouter, useParams } from 'next/navigation';
 import { API_BASE_URL } from "../../../../../config/constant";
 
 export default function Page({ params }) {
@@ -18,8 +18,6 @@ export default function Page({ params }) {
     const [errors, setErrors] = useState({});
     const [formState, setFormState] = useState([])
 
-
-
     const handleChange = e => {
         const { name, value } = e.target;
         e.preventDefault();
@@ -29,8 +27,6 @@ export default function Page({ params }) {
         })
     }
 
-
-
     useEffect(() => {
         getUserDetails()
     }, [])
@@ -38,7 +34,7 @@ export default function Page({ params }) {
     const getUserDetails = async () => {
         const getParams = await params;
         const getID = getParams.id;
-        let response = await fetch(`${API_BASE_URL}/API/List/${getID}`);
+        let response = await fetch(`/API/List/${getID}`);
         let data = await response.json();
         console.log(data.result);
         setValues({
@@ -53,7 +49,7 @@ export default function Page({ params }) {
     const updateUser = async () => {
         const getParams = await params;
         const getID = getParams.id;
-        let result = await fetch(`${API_BASE_URL}/API/List/${getID}`, {
+        let result = await fetch(`/API/List/${getID}`, {
             method: "PUT",
             headers: {
                 "Content-Type": "application/json",
@@ -77,4 +73,5 @@ export default function Page({ params }) {
         </div>
     );
 }
+
 
